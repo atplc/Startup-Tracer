@@ -3,4 +3,4 @@ from django.http import JsonResponse
 # Create your views here.
 
 def Home(request):
-        return JsonResponse({'response':'Hello world.Welcome to Django Project.'})
+        return JsonResponse({'response':'Hello world.Welcome to my Django Project.'})
