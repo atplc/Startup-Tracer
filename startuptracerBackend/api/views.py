@@ -15,3 +15,9 @@ class StartupTracer(APIView):
                 ProgressReport=StartupSerializers(StartupProgress.objects.filter(Applicant_id__username=request.data['username']).all(),many=True)
                 return JsonResponse({"response":ProgressReport.data},status=status.HTTP_200_OK)
 
+def git_update(request):
+    repo = git.Repo('./Startup-Tracer')
+    origin = repo.remotes.origin
+    repo.create_head('main',origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
+    origin.pull()
+    return JsonResponse({})
