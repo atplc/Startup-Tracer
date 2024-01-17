@@ -19,6 +19,6 @@ class StartupProgress(models.Model):
     SeedFund_Received=models.BooleanField(default=False)
     
     def __str__(self):
-        return self.Applicant_id.Name
+        return self.Applicant_id.username
     class Meta:
         db_table="Startups_Progress_Report"
